@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[oc]
+*.egg-info
+.venv
+.pytest_cache/
+*.__junk/
+
+# Personal chess data (games, analysis, models). Never commit.
+data/
+data-demo/
+*.db
+*.db-wal
+*.db-shm
+
+# Build output
+build/
+dist/
+wheels/
+
+# Local only
+docs/
+.claude/
+.DS_Store

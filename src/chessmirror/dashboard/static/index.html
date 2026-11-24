@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Chess Mirror</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='8' height='8' fill='%23b58863'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%23b58863'/%3E%3Crect x='8' width='8' height='8' fill='%23f0d9b5'/%3E%3Crect y='8' width='8' height='8' fill='%23f0d9b5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#overview">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Chess Mirror</span>
+        <span id="player-name" class="brand-player"></span>
+      </a>
+      <div class="topbar-actions">
+        <span id="status" class="status" role="status" aria-live="polite"></span>
+        <button id="refresh" class="btn btn-quiet" type="button" title="Recompute profile, weaknesses, openings and Elo from the database">
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Refresh analysis</span>
+        </button>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#overview" data-route="overview">Overview</a>
+      <a href="#play" data-route="play">Play</a>
+      <a href="#weaknesses" data-route="weaknesses">Weaknesses</a>
+      <a href="#openings" data-route="openings">Openings</a>
+      <a href="#games" data-route="games">Games &amp; Coach</a>
+      <a href="#training" data-route="training">Training</a>
+      <a href="#mirror" data-route="mirror">Mirror &amp; Elo</a>
+      <a href="#setup" data-route="setup">Setup</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page" tabindex="-1">
+    <noscript><p class="note">This dashboard needs JavaScript enabled.</p></noscript>
+  </main>
+
+  <footer class="footer">Runs locally. Numbers come from your analysed games; badges show how strong the evidence is.</footer>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

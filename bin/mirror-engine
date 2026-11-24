@@ -1,0 +1,15 @@
+#!/bin/sh
+# UCI launcher for En Croissant (or any UCI GUI).
+# En Croissant spawns this file directly (no shell, minimal PATH, cwd = this folder),
+# so every path here is absolute and derived from the script's own location.
+DIR="$(cd "$(dirname "$0")/.." && pwd)"
+PY="$DIR/.venv/bin/python"
+LOG_DIR="${MIRROR_DATA_DIR:-$DIR/data}/state"
+mkdir -p "$LOG_DIR"
+export PYTHONUNBUFFERED=1
+cd "$DIR"
+# En Croissant ships as an x86_64 build running under Rosetta; force the native arm64 Python.
+if [ "$(/usr/sbin/sysctl -n hw.optional.arm64 2>/dev/null)" = "1" ]; then
+  exec /usr/bin/arch -arm64 "$PY" -u -m chessmirror.uci.engine "$@" 2>>"$LOG_DIR/engine-stderr.log"
+fi
+exec "$PY" -u -m chessmirror.uci.engine "$@" 2>>"$LOG_DIR/engine-stderr.log"

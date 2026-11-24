@@ -1,0 +1,86 @@
+"""Chess concepts and recognition cues used by the coach.
+
+Each entry explains a principle in plain language plus a concrete habit that
+helps spot the pattern over the board.  The coach fills in the squares/pieces
+of the actual position; these texts are the general part of the lesson.
+"""
+
+CONCEPTS = {
+    "fork": ("Double attack / fork",
+             "One piece attacks two targets at once; the defender can only save one.",
+             "Before every move, list the squares from which an enemy knight or pawn could hit two of your "
+             "undefended or more valuable pieces (especially king + queen/rook)."),
+    "knight_fork": ("Knight fork",
+                    "Knights attack in an L-shape that cannot be blocked, so king/queen/rook on the same knight "
+                    "'colour pattern' are vulnerable together.",
+                    "When your king, queen and rooks stand a knight's jump from one square, check whether an enemy "
+                    "knight can reach that square next move."),
+    "pawn_fork": ("Pawn fork",
+                  "A pawn attacking two pieces wins material because the pieces are worth more than the pawn.",
+                  "Pieces side by side on the same rank in front of enemy pawns are a pawn-fork target."),
+    "pin": ("Pin",
+            "A piece cannot move (or should not) because a more valuable piece or the king stands behind it on the line.",
+            "When a line opens toward your king or queen, ask which of your pieces stands on it and whether it "
+            "can be attacked again while pinned."),
+    "skewer": ("Skewer",
+               "An attack on a valuable piece that must move, exposing a piece behind it.",
+               "Your king and queen (or king and rook) on the same line or diagonal with nothing in between is a skewer risk."),
+    "discovered_attack": ("Discovered attack",
+                          "Moving one piece unveils an attack from another behind it; two threats arrive at once.",
+                          "Look for enemy pieces lined up behind their own pieces aiming at your king or queen."),
+    "discovered_check": ("Discovered check", "A discovered attack that gives check: the moving piece is free to grab anything.",
+                         "A piece standing between an enemy rook/bishop/queen and your king is a loaded gun."),
+    "double_attack": ("Double attack", "Two threats created at once, often by different pieces.",
+                      "After your move, count how many of your pieces are loose (undefended). Two loose pieces invite a double attack."),
+    "capture_hanging": ("Loose pieces drop off",
+                        "An undefended or insufficiently defended piece can simply be captured.",
+                        "Blunder check: after your intended move, which of your pieces are attacked more times than defended?"),
+    "removal_of_defender": ("Removing the defender",
+                            "Capture or drive away the piece that guards a key square or piece, then exploit it.",
+                            "For every enemy piece defended only once, ask: can I remove that single defender?"),
+    "overload": ("Overloaded defender", "A piece with two defensive jobs cannot do both.",
+                 "Find enemy pieces that guard two things and attack one of them."),
+    "deflection": ("Deflection", "Force a defender away from the square or piece it must protect.",
+                   "Checks and captures that the opponent must answer can drag a defender off its post."),
+    "zwischenzug": ("In-between move (zwischenzug)",
+                    "Instead of the 'automatic' recapture, a forcing move is inserted first that improves the result.",
+                    "Before recapturing automatically, ask whether you (or your opponent) have a check or bigger threat first."),
+    "sacrifice": ("Sacrifice", "Material is given up for a concrete gain: mate, more material, or a winning attack.",
+                  "When the enemy king is exposed, calculate forcing lines even if they start by losing material."),
+    "mating_attack": ("Mating attack", "A forcing sequence ends in checkmate.",
+                      "Checks, captures, threats -- in that order -- whenever the enemy king has few defenders."),
+    "back_rank": ("Back-rank weakness", "A king trapped behind its own pawns can be mated by a rook or queen on the back rank.",
+                  "Give your king an escape square (luft) or keep a rook/queen guarding the back rank."),
+    "mate": ("Checkmate", "The king is attacked and cannot escape.", "Always check the opponent's checks first."),
+    "promotion": ("Promotion", "A pawn reaching the last rank becomes a queen; passed pawns must be stopped early.",
+                  "Count tempi: can the enemy pawn queen before you can stop it or create counterplay?"),
+}
+
+CATEGORY = {
+    "tactical oversight": ("Tactical oversight",
+                           "A short forcing sequence was missed -- usually the opponent's threat after your move.",
+                           "Do a blunder check before each move: what are the opponent's checks, captures and threats now?"),
+    "calculation error": ("Calculation error",
+                          "The move was a reasonable candidate, but a concrete line fails several moves deep.",
+                          "Calculate the forcing replies to the end and evaluate the final position, not the first move."),
+    "positional misunderstanding": ("Positional misunderstanding",
+                                    "No immediate tactic, but the move worsened the position's long-term features.",
+                                    "Compare candidate moves by what they change: pawn structure, piece activity, king safety."),
+    "opening knowledge": ("Opening principles / theory",
+                          "Early errors usually come from breaking development/centre principles or unfamiliar lines.",
+                          "In the opening: develop, castle, fight for the centre, and don't move one piece twice without reason."),
+    "king safety": ("King safety", "Your king became exposed to a direct attack.",
+                    "Before pushing pawns in front of your king or leaving it in the centre, count attackers vs defenders nearby."),
+    "pawn structure": ("Pawn structure", "The move created a lasting pawn weakness (isolated, doubled or backward pawn).",
+                       "Pawns can't move back: ask what squares become permanently weak after a pawn move."),
+    "piece activity": ("Piece activity", "A piece was placed passively or an active piece was traded/retreated needlessly.",
+                       "Prefer moves that increase the scope of your worst piece."),
+    "endgame technique": ("Endgame technique", "Endgames reward precise king activity, pawn races and exact calculation.",
+                          "Activate the king, create passed pawns, and count tempi in pawn races."),
+    "time management": ("Time management", "A critical decision was made too quickly or with too little time left.",
+                        "Spend time on only-move positions (sharp, many losing moves); play fast in quiet ones."),
+    "unnecessary risk": ("Unnecessary risk", "From a winning position the move increased complications instead of simplifying.",
+                         "When clearly winning: remove counterplay first, trade pieces, keep your king safe."),
+    "missed opportunity": ("Missed opportunity", "A clearly better move (often a tactic) was available.",
+                           "In every position ask: do I have a forcing move that wins something?"),
+}

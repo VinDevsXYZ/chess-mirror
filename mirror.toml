@@ -1,0 +1,25 @@
+# Personal Chess Mirror configuration.
+
+[player]
+name = "Ahmed"
+# Every name/username you appear under in PGN headers (case-insensitive).
+aliases = []
+lichess = ""     # e.g. "your_lichess_username"  -> `mirror fetch lichess`
+chesscom = ""    # e.g. "your_chesscom_username" -> `mirror fetch chesscom`
+
+[paths]
+data_dir = "data"   # override per run with MIRROR_DATA_DIR (e.g. data-demo for synthetic tests)
+
+[analysis]
+deep_depth = 12        # Stockfish MultiPV "teacher" pass (~0.4 s/position/core; 14 = ~1 s, better coaching)
+deep_multipv = 5
+broad_depth = 8        # shallow pass over every legal move
+workers = 10           # parallel Stockfish processes (M3 Pro: 12 cores)
+hash_mb = 64
+analyze_opponents = true   # opponents form the Elo-matched population prior + baselines
+
+[engine]
+stockfish_path = ""    # blank = auto-detect (Homebrew, then En Croissant's copy)
+think_depth = 12       # live analysis depth inside the UCI engine
+think_multipv = 5
+broad_depth = 7
